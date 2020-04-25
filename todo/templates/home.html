@@ -1,6 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<h1>Hello World</h1>
-
+<div class="box">
+<table class='table'>
+  <thead>
+    <tr>
+      <th>
+        <form action="/" method="POST" class='form form-main'>
+          {% csrf_token %}
+          {{form.title}}
+          <input class='btn btn-primary' type="submit" name='submit'>
+        </form>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for task in tasks %}
+  <tr>
+      <td>
+        <p>{{task.title}}</p>
+        <a class='btn btn-info' href="{% url 'update_view' task.id %}">Update</a>
+        <a class='btn btn-danger' href="{% url 'delete_view' task.id %}">Delete</a>
+      </td>
+  </tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
 {% endblock %}

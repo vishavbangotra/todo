@@ -20,4 +20,6 @@ from basicapp.views import *
 urlpatterns = [
     path('', home),
     path('admin/', admin.site.urls),
+    path('update/<int:pk>/', update, name='update_view'),
+    path('delete/<int:pk>/', delete, name='delete_view'),
 ]
