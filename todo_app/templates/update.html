@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+  <head>
+    <title>update</title>
+  </head>
+  <body>
+  <form class="" action="" method="POST">
+    {% csrf_token %}
+    <div class="jumbotron">
+      <h1>Update</h1>
+    {{form}}
+    </div>
+    <input class='btn btn-primary' type="submit" name="Update" value="Update">
+  </form>
+  </body>
+</html>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center-column">
+  <h1>My Todo App</h1>
+<table class='table'>
+  <thead>
+    <tr>
+      <th>
+        <form action="" method='POST' class='form form-main'>
+          {% csrf_token %}
+          {{form.title}}
+          <input class='submit' type="submit" name='submit' style='color: white'>
+        </form>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+{% for todo in todos %}
+  <tr class='item-row'>
+      <td>
+        <p>{{todo.title}}</p>
+        <a href="{% url 'update' todo.id %}"><button class="btn btn-info" name="button">Update</button></a>
+        <a href="{% url 'delete' todo.id %}"><button class="btn btn-danger" name="button">Delete</button></a>
+      </td>
+  </tr>
+{% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

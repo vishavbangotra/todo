@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+  <head>
+    <title>update</title>
+  </head>
+  <body class="container">
+  <form class="" action="" method="POST">
+    {% csrf_token %}
+    <div class="jumbotron">
+      <h1>Are you sure you want to delete item: {{name}}?</h1>
+    </div>
+    <input type="submit" class='btn btn-danger'  name="Confirm" value="Confirm">
+  </form>
+  </body>
+</html>
+{% endblock %}
